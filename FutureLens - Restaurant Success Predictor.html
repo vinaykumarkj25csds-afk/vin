@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)file:///C:/Users/pc/.p2/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FutureLens - Restaurant Success Predictor</title>
+    <link rel="stylesheet" href="./FutureLens - Restaurant Success Predictor_files/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" style="background: rgba(15, 23, 42, 0.98); box-shadow: rgba(99, 102, 241, 0.3) 0px 2px 20px;">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">🔮</span>
+                <span class="logo-text">FutureLens</span>
+            </div>
+            <div class="nav-links">
+                <a href="file:///C:/Users/pc/.p2/index.html#features">Features</a>
+                <a href="file:///C:/Users/pc/.p2/index.html#predictor">Predictor</a>
+                <a href="file:///C:/Users/pc/.p2/index.html#how-it-works">How It Works</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="gradient-text">Predict Before It Happens</span>
+            </h1>
+            <h2 class="hero-subtitle">Restaurant Success Predictor</h2>
+            <p class="hero-description">
+                Forecast if your new cafe or restaurant will thrive based on location analysis, 
+                menu optimization, and market trends. Make data-driven decisions before you invest.
+            </p>
+            <a href="file:///C:/Users/pc/.p2/index.html#predictor" class="cta-button">Start Prediction</a>
+        </div>
+        <div class="hero-visual">
+            <div class="floating-card">
+                <div class="card-icon">📊</div>
+                <div class="card-stats">
+                    <div class="stat">
+                        <span class="stat-value">94%</span>
+                        <span class="stat-label">Accuracy</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">50K+</span>
+                        <span class="stat-label">Predictions</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Powered by Advanced Analytics</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📍</div>
+                    <h3>Location Intelligence</h3>
+                    <p>Analyze foot traffic, competition density, demographic profiles, and local market conditions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🍽️</div>
+                    <h3>Menu Optimization</h3>
+                    <p>Evaluate cuisine trends, pricing strategies, and unique value propositions for your target market.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Market Trends</h3>
+                    <p>Leverage real-time data on dining preferences, seasonal patterns, and emerging food trends.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💡</div>
+                    <h3>Actionable Insights</h3>
+                    <p>Get personalized recommendations to maximize your restaurant's chances of success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Predictor Section -->
+    <section id="predictor" class="predictor">
+        <div class="container">
+            <h2 class="section-title">Predict Your Restaurant's Success</h2>
+            <p class="section-subtitle">Enter your restaurant details to get an instant success probability assessment</p>
+            
+            <div class="predictor-container">
+                <form id="predictionForm" class="prediction-form">
+                    <!-- Location Details -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">📍 Location Details</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="text" id="city" name="city" placeholder="e.g., New York" required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="neighborhood">Neighborhood Type</label>
+                                <select id="neighborhood" name="neighborhood" required="">
+                                    <option value="">Select type</option>
+                                    <option value="downtown">Downtown/Business District</option>
+                                    <option value="residential">Residential Area</option>
+                                    <option value="tourist">Tourist Area</option>
+                                    <option value="suburban">Suburban</option>
+                                    <option value="university">University Area</option>
+                                    <option value="mall">Shopping Mall</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="footTraffic">Foot Traffic Level</label>
+                                <select id="footTraffic" name="footTraffic" required="">
+                                    <option value="">Select level</option>
+                                    <option value="low">Low</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="high">High</option>
+                                    <option value="very-high">Very High</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="competition">Competition Level</label>
+                                <select id="competition" name="competition" required="">
+                                    <option value="">Select level</option>
+                                    <option value="low">Low (few similar restaurants)</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="high">High (many competitors)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Restaurant Details -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">🍽️ Restaurant Details</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cuisine">Cuisine Type</label>
+                                <select id="cuisine" name="cuisine" required="">
+                                    <option value="">Select cuisine</option>
+                                    <option value="cafe">Cafe/Bakery</option>
+                                    <option value="american">American</option>
+                                    <option value="italian">Italian</option>
+                                    <option value="asian">Asian</option>
+                                    <option value="mexican">Mexican</option>
+                                    <option value="indian">Indian</option>
+                                    <option value="mediterranean">Mediterranean</option>
+                                    <option value="fast-casual">Fast Casual</option>
+                                    <option value="fine-dining">Fine Dining</option>
+                                    <option value="fusion">Fusion</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="priceRange">Price Range</label>
+                                <select id="priceRange" name="priceRange" required="">
+                                    <option value="">Select range</option>
+                                    <option value="budget">Budget ($)</option>
+                                    <option value="moderate">Moderate ($$)</option>
+                                    <option value="upscale">Upscale ($$$)</option>
+                                    <option value="premium">Premium ($$$$)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="seatingCapacity">Seating Capacity</label>
+                                <input type="number" id="seatingCapacity" name="seatingCapacity" placeholder="e.g., 50" min="1" required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="uniqueDishes">Unique Selling Point</label>
+                                <input type="text" id="uniqueDishes" name="uniqueDishes" placeholder="e.g., Organic, Vegan, Late-night" required="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Target Market -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">👥 Target Market</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="targetDemographic">Primary Demographic</label>
+                                <select id="targetDemographic" name="targetDemographic" required="">
+                                    <option value="">Select demographic</option>
+                                    <option value="young-professionals">Young Professionals (25-35)</option>
+                                    <option value="families">Families</option>
+                                    <option value="students">Students</option>
+                                    <option value="tourists">Tourists</option>
+                                    <option value="business">Business Lunch/Dinner</option>
+                                    <option value="seniors">Seniors</option>
+                                    <option value="mixed">Mixed/Diverse</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="investment">Investment Level</label>
+                                <select id="investment" name="investment" required="">
+                                    <option value="">Select investment</option>
+                                    <option value="low">Low (&lt;$50K)</option>
+                                    <option value="medium">Medium ($50K-$150K)</option>
+                                    <option value="high">High ($150K-$500K)</option>
+                                    <option value="premium">Premium (&gt;$500K)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="predict-button">
+                        <span class="button-text">Generate Prediction</span>
+                        <span class="button-icon">🔮</span>
+                    </button>
+                </form>
+
+                <!-- Results Section -->
+                <div id="results" class="results">
+                    <div class="results-header">
+                        <h3>Prediction Results</h3>
+                        <button class="close-results" onclick="closeResults()">✕</button>
+                    </div>
+                    
+                    <div class="success-score">
+                        <div class="score-circle">
+                            <span id="scoreValue">79</span>%
+                        </div>
+                        <p id="scoreLabel" style="color: rgb(245, 158, 11);">Moderate Success Probability</p>
+                    </div>
+
+                    <div class="factors-grid">
+                        <div class="factor-card">
+                            <h4>📍 Location Score</h4>
+                            <div class="factor-bar">
+                                <div id="locationBar" class="factor-fill" style="width: 60%;"></div>
+                            </div>
+                            <span id="locationScore">60%</span>
+                        </div>
+                        <div class="factor-card">
+                            <h4>🍽️ Menu Score</h4>
+                            <div class="factor-bar">
+                                <div id="menuBar" class="factor-fill" style="width: 81%;"></div>
+                            </div>
+                            <span id="menuScore">81%</span>
+                        </div>
+                        <div class="factor-card">
+                            <h4>👥 Market Fit</h4>
+                            <div class="factor-bar">
+                                <div id="marketBar" class="factor-fill" style="width: 95%;"></div>
+                            </div>
+                            <span id="marketScore">95%</span>
+                        </div>
+                        <div class="factor-card">
+                            <h4>💰 Investment Viability</h4>
+                            <div class="factor-bar">
+                                <div id="investmentBar" class="factor-fill" style="width: 90%;"></div>
+                            </div>
+                            <span id="investmentScore">90%</span>
+                        </div>
+                    </div>
+
+                    <div class="recommendations">
+                        <h4>💡 Key Recommendations</h4>
+                        <ul id="recommendationList"><li>Focus on delivery and takeout to compensate for low foot traffic</li><li>Explore marketing strategies to attract customers from neighboring areas</li><li>Your menu concept aligns well with market demands</li><li>Strong market fit detected - proceed with confidence</li><li>👍 Good potential with some areas for optimization as noted above</li></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Enter Details</h3>
+                    <p>Provide information about your planned location, menu concept, and target market.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>AI Analysis</h3>
+                    <p>Our algorithm analyzes thousands of data points including market trends and competition.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Get Results</h3>
+                    <p>Receive instant success probability scores and actionable recommendations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">🔮</span>
+                    <span class="logo-text">FutureLens</span>
+                    <p>Predict Before It Happens</p>
+                </div>
+                <div class="footer-links">
+                    <a href="file:///C:/Users/pc/.p2/index.html#features">Features</a>
+                    <a href="file:///C:/Users/pc/.p2/index.html#predictor">Predictor</a>
+                    <a href="file:///C:/Users/pc/.p2/index.html#how-it-works">How It Works</a>
+                </div>
+            </div>
+            <p class="footer-copy">© 2024 FutureLens. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="./FutureLens - Restaurant Success Predictor_files/script.js"></script>
+
+</body></html>
