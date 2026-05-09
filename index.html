@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FutureLens - Restaurant Success Predictor India</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">🔮</span>
+                <span class="logo-text">FutureLens</span>
+            </div>
+            <div class="nav-links">
+                <a href="#search">Search</a>
+                <a href="#features">Features</a>
+                <a href="#predictor">Predictor</a>
+                <a href="#how-it-works">How It Works</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="gradient-text">Predict Before It Happens</span>
+            </h1>
+            <h2 class="hero-subtitle">India's Restaurant Success Predictor</h2>
+            <p class="hero-description">
+                Forecast if your new cafe or restaurant will thrive based on comprehensive Indian market analysis 
+                including population density, spending power, rent vs revenue, and more. Make data-driven decisions before you invest.
+            </p>
+            <a href="#predictor" class="cta-button">Start Prediction</a>
+        </div>
+        <div class="hero-visual">
+            <div class="floating-card">
+                <div class="card-icon">📊</div>
+                <div class="card-stats">
+                    <div class="stat">
+                        <span class="stat-value">94%</span>
+                        <span class="stat-label">Accuracy</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">50K+</span>
+                        <span class="stat-label">Predictions</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section id="search" class="search-section">
+        <div class="container">
+            <h2 class="section-title">Search Restaurant Predictions</h2>
+            <p class="section-subtitle">Browse through 100+ restaurant predictions across Indian cities</p>
+            
+            <div class="search-container">
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Search by restaurant name, city, cuisine type..." class="search-input">
+                    <button class="search-button" onclick="performSearch()">
+                        <span>🔍</span>
+                    </button>
+                </div>
+                
+                <div class="filter-options">
+                    <select id="filterCuisine" class="filter-select">
+                        <option value="">All Cuisines</option>
+                        <option value="north-indian">North Indian</option>
+                        <option value="south-indian">South Indian</option>
+                        <option value="punjabi">Punjabi</option>
+                        <option value="gujarati">Gujarati</option>
+                        <option value="maharashtrian">Maharashtrian</option>
+                        <option value="bengali">Bengali</option>
+                        <option value="rajasthani">Rajasthani</option>
+                        <option value="kerala">Kerala</option>
+                        <option value="andhra">Andhra</option>
+                        <option value="chettinad">Chettinad</option>
+                        <option value="hyderabadi">Hyderabadi</option>
+                        <option value="lucknowi">Lucknowi</option>
+                        <option value="kashmiri">Kashmiri</option>
+                        <option value="goan">Goan</option>
+                        <option value="indo-chinese">Indo-Chinese</option>
+                        <option value="street-food">Street Food</option>
+                        <option value="mughlai">Mughlai</option>
+                        <option value="awadhi">Awadhi</option>
+                        <option value="konkan">Konkan</option>
+                    </select>
+                    
+                    <select id="filterCity" class="filter-select">
+                        <option value="">All Cities</option>
+                        <option value="mumbai">Mumbai</option>
+                        <option value="delhi">Delhi</option>
+                        <option value="bangalore">Bangalore</option>
+                        <option value="chennai">Chennai</option>
+                        <option value="kolkata">Kolkata</option>
+                        <option value="hyderabad">Hyderabad</option>
+                        <option value="pune">Pune</option>
+                        <option value="ahmedabad">Ahmedabad</option>
+                        <option value="jaipur">Jaipur</option>
+                        <option value="lucknow">Lucknow</option>
+                    </select>
+                    
+                    <select id="filterSuccess" class="filter-select">
+                        <option value="">All Success Rates</option>
+                        <option value="high">High (80%+)</option>
+                        <option value="medium">Medium (60-79%)</option>
+                        <option value="low">Low (Below 60%)</option>
+                    </select>
+                    
+                    <button class="filter-button" onclick="applyFilters()">Apply Filters</button>
+                    <button class="filter-button clear" onclick="clearFilters()">Clear</button>
+                </div>
+            </div>
+            
+            <div class="search-results">
+                <div class="results-info">
+                    <span id="resultsCount">100+</span> predictions found
+                </div>
+                <div id="predictionsGrid" class="predictions-grid">
+                    <!-- Predictions will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Powered by Advanced Analytics</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📍</div>
+                    <h3>Area Analysis</h3>
+                    <p>Comprehensive location analysis including neighborhood type, commercial vs residential mix, and local infrastructure.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Population Density</h3>
+                    <p>Analyze local population density, demographics, and target customer base for your restaurant concept.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏪</div>
+                    <h3>Competitor Analysis</h3>
+                    <p>Evaluate competition density, market saturation, and identify gaps in the local restaurant landscape.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚶</div>
+                    <h3>Foot Traffic Analysis</h3>
+                    <p>Measure pedestrian flow, peak hours, and customer movement patterns in your chosen location.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Spending Power</h3>
+                    <p>Assess local income levels, disposable income, and pricing power of your target demographic.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Rent vs Revenue</h3>
+                    <p>Calculate optimal rent-to-revenue ratios and ensure sustainable business economics.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">♿</div>
+                    <h3>Accessibility Analysis</h3>
+                    <p>Evaluate parking availability, public transport connectivity, and ease of customer access.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛵</div>
+                    <h3>Delivery Demand</h3>
+                    <p>Analyze food delivery market potential, platform partnerships, and delivery infrastructure.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⏰</div>
+                    <h3>Time-Based Demand</h3>
+                    <p>Understand peak dining hours, seasonal variations, and day-of-week demand patterns.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🍽️</div>
+                    <h3>Cuisine-Market Fit</h3>
+                    <p>Match your cuisine concept with local preferences and market demand trends.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Safety & Infrastructure</h3>
+                    <p>Assess safety ratings, power backup, water supply, and infrastructure reliability.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💡</div>
+                    <h3>Actionable Insights</h3>
+                    <p>Get personalized recommendations to maximize your restaurant's chances of success in the Indian market.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Predictor Section -->
+    <section id="predictor" class="predictor">
+        <div class="container">
+            <h2 class="section-title">Predict Your Restaurant's Success</h2>
+            <p class="section-subtitle">Enter your restaurant details for comprehensive Indian market analysis</p>
+            
+            <div class="predictor-container">
+                <form id="predictionForm" class="prediction-form">
+                    <!-- Location Details -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">📍 Location Analysis</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <select id="city" name="city" required>
+                                    <option value="">Select city</option>
+                                    <option value="mumbai">Mumbai</option>
+                                    <option value="delhi">Delhi</option>
+                                    <option value="bangalore">Bangalore</option>
+                                    <option value="chennai">Chennai</option>
+                                    <option value="kolkata">Kolkata</option>
+                                    <option value="hyderabad">Hyderabad</option>
+                                    <option value="pune">Pune</option>
+                                    <option value="ahmedabad">Ahmedabad</option>
+                                    <option value="jaipur">Jaipur</option>
+                                    <option value="lucknow">Lucknow</option>
+                                    <option value="surat">Surat</option>
+                                    <option value="kanpur">Kanpur</option>
+                                    <option value="nagpur">Nagpur</option>
+                                    <option value="indore">Indore</option>
+                                    <option value="thane">Thane</option>
+                                    <option value="bhopal">Bhopal</option>
+                                    <option value="visakhapatnam">Visakhapatnam</option>
+                                    <option value="pimpri">Pimpri-Chinchwad</option>
+                                    <option value="patna">Patna</option>
+                                    <option value="vadodara">Vadodara</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="area">Area Type</label>
+                                <select id="area" name="area" required>
+                                    <option value="">Select area type</option>
+                                    <option value="cbd">Central Business District</option>
+                                    <option value="high-street">High Street/Commercial</option>
+                                    <option value="residential">Residential Area</option>
+                                    <option value="mixed-use">Mixed Use</option>
+                                    <option value="mall">Shopping Mall</option>
+                                    <option value="tech-park">Tech Park/IT Hub</option>
+                                    <option value="university">University Area</option>
+                                    <option value="tourist">Tourist Area</option>
+                                    <option value="industrial">Industrial Area</option>
+                                    <option value="suburban">Suburban</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="populationDensity">Population Density</label>
+                                <select id="populationDensity" name="populationDensity" required>
+                                    <option value="">Select density</option>
+                                    <option value="very-high">Very High (>20,000/sq km)</option>
+                                    <option value="high">High (10,000-20,000/sq km)</option>
+                                    <option value="medium">Medium (5,000-10,000/sq km)</option>
+                                    <option value="low">Low (<5,000/sq km)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="footTraffic">Foot Traffic Level</label>
+                                <select id="footTraffic" name="footTraffic" required>
+                                    <option value="">Select level</option>
+                                    <option value="very-high">Very High</option>
+                                    <option value="high">High</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="low">Low</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="competition">Competition Level</label>
+                                <select id="competition" name="competition" required>
+                                    <option value="">Select level</option>
+                                    <option value="low">Low (few similar restaurants)</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="high">High (many competitors)</option>
+                                    <option value="saturated">Saturated Market</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="accessibility">Accessibility Score</label>
+                                <select id="accessibility" name="accessibility" required>
+                                    <option value="">Select score</option>
+                                    <option value="excellent">Excellent (Metro + Parking)</option>
+                                    <option value="good">Good (Metro or Parking)</option>
+                                    <option value="moderate">Moderate (Public Transport)</option>
+                                    <option value="limited">Limited Access</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Restaurant Details -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">🍽️ Restaurant Concept</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cuisine">Cuisine Type (100+ Options)</label>
+                                <select id="cuisine" name="cuisine" required>
+                                    <option value="">Select cuisine</option>
+                                    <optgroup label="North Indian">
+                                        <option value="punjabi">Punjabi</option>
+                                        <option value="kashmiri">Kashmiri</option>
+                                        <option value="awadhi">Awadhi/Lucknowi</option>
+                                        <option value="rajasthani">Rajasthani</option>
+                                        <option value="mughlai">Mughlai</option>
+                                        <option value="north-indian-general">North Indian General</option>
+                                        <option value="haryanvi">Haryanvi</option>
+                                        <option value="himachali">Himachali</option>
+                                        <option value="uttar-pradesh">Uttar Pradesh Special</option>
+                                    </optgroup>
+                                    <optgroup label="South Indian">
+                                        <option value="south-indian-general">South Indian General</option>
+                                        <option value="kerala">Kerala/Malayali</option>
+                                        <option value="andhra">Andhra/Telugu</option>
+                                        <option value="chettinad">Chettinad</option>
+                                        <option value="hyderabadi">Hyderabadi</option>
+                                        <option value="tamil-nadu">Tamil Nadu Special</option>
+                                        <option value="karnataka">Karnataka/Mysore</option>
+                                        <option value="kerala-syrian">Kerala Syrian Christian</option>
+                                    </optgroup>
+                                    <optgroup label="West Indian">
+                                        <option value="gujarati">Gujarati</option>
+                                        <option value="maharashtrian">Maharashtrian</option>
+                                        <option value="rajasthani">Rajasthani</option>
+                                        <option value="goan">Goan</option>
+                                        <option value="konkan">Konkan/Malvani</option>
+                                        <option value="sindhi">Sindhi</option>
+                                        <option value="parsian">Parsi</option>
+                                    </optgroup>
+                                    <optgroup label="East Indian">
+                                        <option value="bengali">Bengali</option>
+                                        <option value="odiya">Odiya</option>
+                                        <option value="assamese">Assamese</option>
+                                        <option value="bihari">Bihari</option>
+                                        <option value="nepali">Nepali</option>
+                                    </optgroup>
+                                    <optgroup label="Street Food & Chaat">
+                                        <option value="chaat">Chaat</option>
+                                        <option value="street-food">Street Food</option>
+                                        <option value="panipuri">Panipuri/Gol Gappa</option>
+                                        <option value="pav-bhaji">Pav Bhaji</option>
+                                        <option value="vada-pav">Vada Pav</option>
+                                        <option value="dosa-idli">Dosa & Idli</option>
+                                        <option value="momos">Momos</option>
+                                        <option value="rolls-kathi">Rolls & Kathi</option>
+                                        <option value="chhole-bhature">Chhole Bhature</option>
+                                    </optgroup>
+                                    <optgroup label="Fusion & Modern">
+                                        <option value="indo-chinese">Indo-Chinese</option>
+                                        <option value="modern-indian">Modern Indian</option>
+                                        <option value="fusion">Fusion</option>
+                                        <option value="continental">Continental</option>
+                                        <option value="italian-indian">Italian-Indian Fusion</option>
+                                        <option value="mexican-indian">Mexican-Indian Fusion</option>
+                                    </optgroup>
+                                    <optgroup label="Specialty">
+                                        <option value="biryani">Biryani Specialist</option>
+                                        <option value="kebabs">Kebabs Specialist</option>
+                                        <option value="seafood">Seafood</option>
+                                        <option value="vegetarian">Pure Vegetarian</option>
+                                        <option value="vegan">Vegan</option>
+                                        <option value="jain">Jain Food</option>
+                                        <option value="sattvic">Sattvic/Ayurvedic</option>
+                                        <option value="gluten-free">Gluten-Free</option>
+                                    </optgroup>
+                                    <optgroup label="Quick Service">
+                                        <option value="cafe">Cafe/Bakery</option>
+                                        <option value="fast-food">Fast Food</option>
+                                        <option value="food-court">Food Court</option>
+                                        <option value="qsr">Quick Service Restaurant</option>
+                                        <option value="tea-coffee">Tea/Cafe</option>
+                                    </optgroup>
+                                    <optgroup label="Fine Dining">
+                                        <option value="fine-dining-indian">Fine Dining Indian</option>
+                                        <option value="fine-dining-international">Fine Dining International</option>
+                                        <option value="royal-cuisine">Royal/Nawabi Cuisine</option>
+                                    </optgroup>
+                                    <optgroup label="Beverages & Desserts">
+                                        <option value="juice-bar">Juice Bar</option>
+                                        <option value="ice-cream">Ice Cream Parlour</option>
+                                        <option value="sweet-shop">Sweet Shop/Mithai</option>
+                                        <option value="chai-stall">Chai Stall</option>
+                                        <option value="hookah-lounge">Hookah Lounge</option>
+                                    </optgroup>
+                                    <optgroup label="Regional Specialties">
+                                        <option value="kolkata-kathi">Kolkata Kathi Roll</option>
+                                        <option value="mumbai-street">Mumbai Street Food</option>
+                                        <option value="delhi-street">Delhi Street Food</option>
+                                        <option value="chennai-filter">Chennai Filter Coffee</option>
+                                        <option value="bangalore-darshini">Bangalore Darshini</option>
+                                        <option value="hyderabad-irani">Hyderabad Irani Cafe</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="priceRange">Price Range (INR)</label>
+                                <select id="priceRange" name="priceRange" required>
+                                    <option value="">Select range</option>
+                                    <option value="budget">Budget (₹100-300 per person)</option>
+                                    <option value="economy">Economy (₹300-500 per person)</option>
+                                    <option value="moderate">Moderate (₹500-1000 per person)</option>
+                                    <option value="premium">Premium (₹1000-2000 per person)</option>
+                                    <option value="luxury">Luxury (₹2000+ per person)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="seatingCapacity">Seating Capacity</label>
+                                <input type="number" id="seatingCapacity" name="seatingCapacity" placeholder="e.g., 50" min="1" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="uniqueDishes">Unique Selling Point</label>
+                                <input type="text" id="uniqueDishes" name="uniqueDishes" placeholder="e.g., Organic, 24/7, Home Delivery" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Market Analysis -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">📊 Market Analysis</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="spendingPower">Local Spending Power</label>
+                                <select id="spendingPower" name="spendingPower" required>
+                                    <option value="">Select level</option>
+                                    <option value="high">High (Affluent Area)</option>
+                                    <option value="medium-high">Medium-High</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="medium-low">Medium-Low</option>
+                                    <option value="low">Low (Budget Conscious)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="rentRevenue">Rent vs Revenue Expectation</label>
+                                <select id="rentRevenue" name="rentRevenue" required>
+                                    <option value="">Select ratio</option>
+                                    <option value="excellent">Excellent (<15% of revenue)</option>
+                                    <option value="good">Good (15-20% of revenue)</option>
+                                    <option value="moderate">Moderate (20-25% of revenue)</option>
+                                    <option value="high">High (25-30% of revenue)</option>
+                                    <option value="very-high">Very High (>30% of revenue)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="deliveryDemand">Delivery Demand Potential</label>
+                                <select id="deliveryDemand" name="deliveryDemand" required>
+                                    <option value="">Select potential</option>
+                                    <option value="very-high">Very High</option>
+                                    <option value="high">High</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="low">Low</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="timeDemand">Peak Demand Time</label>
+                                <select id="timeDemand" name="timeDemand" required>
+                                    <option value="">Select peak time</option>
+                                    <option value="breakfast">Breakfast (7-11 AM)</option>
+                                    <option value="lunch">Lunch (12-3 PM)</option>
+                                    <option value="dinner">Dinner (7-11 PM)</option>
+                                    <option value="late-night">Late Night (11 PM-4 AM)</option>
+                                    <option value="all-day">All Day</option>
+                                    <option value="weekend">Weekend Heavy</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cuisineMarketFit">Cuisine-Market Fit</label>
+                                <select id="cuisineMarketFit" name="cuisineMarketFit" required>
+                                    <option value="">Select fit</option>
+                                    <option value="excellent">Excellent (High Local Demand)</option>
+                                    <option value="good">Good</option>
+                                    <option value="moderate">Moderate</option>
+                                    <option value="niche">Niche (Limited Audience)</option>
+                                    <option value="experimental">Experimental (New Concept)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="safetyInfrastructure">Safety & Infrastructure</label>
+                                <select id="safetyInfrastructure" name="safetyInfrastructure" required>
+                                    <option value="">Select rating</option>
+                                    <option value="excellent">Excellent (24/7 Power, Water, Safe)</option>
+                                    <option value="good">Good</option>
+                                    <option value="moderate">Moderate</option>
+                                    <option value="basic">Basic Infrastructure</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Investment -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">💰 Investment Details</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="investment">Investment Level (INR)</label>
+                                <select id="investment" name="investment" required>
+                                    <option value="">Select investment</option>
+                                    <option value="low">Low (₹5-15 Lakhs)</option>
+                                    <option value="medium">Medium (₹15-50 Lakhs)</option>
+                                    <option value="high">High (₹50 Lakhs - ₹1 Crore)</option>
+                                    <option value="premium">Premium (₹1-3 Crores)</option>
+                                    <option value="luxury">Luxury (₹3+ Crores)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="targetDemographic">Target Demographic</label>
+                                <select id="targetDemographic" name="targetDemographic" required>
+                                    <option value="">Select demographic</option>
+                                    <option value="young-professionals">Young Professionals (25-35)</option>
+                                    <option value="families">Families</option>
+                                    <option value="students">Students/College</option>
+                                    <option value="office-workers">Office Workers</option>
+                                    <option value="tourists">Tourists</option>
+                                    <option value="seniors">Seniors</option>
+                                    <option value="mixed">Mixed/Diverse</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="predict-button">
+                        <span class="button-text">Generate Prediction</span>
+                        <span class="button-icon">🔮</span>
+                    </button>
+                </form>
+
+                <!-- Results Section -->
+                <div id="results" class="results hidden">
+                    <div class="results-header">
+                        <h3>Prediction Results</h3>
+                        <button class="close-results" onclick="closeResults()">✕</button>
+                    </div>
+                    
+                    <div class="success-score">
+                        <div class="score-circle">
+                            <span id="scoreValue">0</span>%
+                        </div>
+                        <p id="scoreLabel">Success Probability</p>
+                    </div>
+
+                    <div class="factors-grid">
+                        <div class="factor-card">
+                            <h4>📍 Location Score</h4>
+                            <div class="factor-bar">
+                                <div id="locationBar" class="factor-fill"></div>
+                            </div>
+                            <span id="locationScore">0%</span>
+                        </div>
+                        <div class="factor-card">
+                            <h4>🍽️ Menu Score</h4>
+                            <div class="factor-bar">
+                                <div id="menuBar" class="factor-fill"></div>
+                            </div>
+                            <span id="menuScore">0%</span>
+                        </div>
+                        <div class="factor-card">
+                            <h4>👥 Market Fit</h4>
+                            <div class="factor-bar">
+                                <div id="marketBar" class="factor-fill"></div>
+                            </div>
+                            <span id="marketScore">0%</span>
+                        </div>
+                        <div class="factor-card">
+                            <h4>💰 Investment Viability</h4>
+                            <div class="factor-bar">
+                                <div id="investmentBar" class="factor-fill"></div>
+                            </div>
+                            <span id="investmentScore">0%</span>
+                        </div>
+                        <div class="factor-card">
+                            <h4>🏪 Competition Score</h4>
+                            <div class="factor-bar">
+                                <div id="competitionBar" class="factor-fill"></div>
+                            </div>
+                            <span id="competitionScore">0%</span>
+                        </div>
+                        <div class="factor-card">
+                            <h4>🚶 Foot Traffic Score</h4>
+                            <div class="factor-bar">
+                                <div id="footTrafficBar" class="factor-fill"></div>
+                            </div>
+                            <span id="footTrafficScore">0%</span>
+                        </div>
+                    </div>
+
+                    <div class="recommendations">
+                        <h4>💡 Key Recommendations</h4>
+                        <ul id="recommendationList">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Enter Details</h3>
+                    <p>Provide comprehensive information about location, menu concept, and market analysis factors.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>AI Analysis</h3>
+                    <p>Our algorithm analyzes 12+ factors including population density, spending power, rent vs revenue, and more.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Get Results</h3>
+                    <p>Receive instant success probability scores and actionable recommendations for the Indian market.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">🔮</span>
+                    <span class="logo-text">FutureLens</span>
+                    <p>India's Restaurant Success Predictor</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#features">Features</a>
+                    <a href="#predictor">Predictor</a>
+                    <a href="#how-it-works">How It Works</a>
+                </div>
+            </div>
+            <p class="footer-copy">&copy; 2024 FutureLens India. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
